@@ -8,25 +8,33 @@ namespace HashTableDemo
         {
             //welcome Message
             Console.WriteLine("Welcome to HASH MAP DEMO!");
-            
+
+            //Variable
+            int key = 0;
+
+            //Paragraph words assign to array
+            string paragraphPhrase = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+            string[] paragraph = paragraphPhrase.Split(" ");
+
             //Object of class MyMapNode
-            MyMapNode<string, string> myMapNode = new MyMapNode<string, string>(5);
+            MyMapNode<int, string> myMapNode = new MyMapNode<int, string>(paragraph.Length);
 
-            //Add data
-            myMapNode.Add("0", "To");
-            myMapNode.Add("1", "be");
-            myMapNode.Add("2", "To");
-            myMapNode.Add("3", "or");
-            myMapNode.Add("4", "not");
-            myMapNode.Add("5", "be");
+            //Add 
+            foreach (string word in paragraph)
+            {
+                myMapNode.Add(key, word);
+                key++;
+            }
 
-            //Get Value and Display
-            string hash5 = myMapNode.Get("5");
-            Console.WriteLine("5th index  value: " + hash5);
+            //Display
+            Console.WriteLine("frequency of words ");
+            Console.WriteLine("-------------------");
 
-            //Get Value and Display
-            string hash2 = myMapNode.Get("2");
-            Console.WriteLine("2nd index  value: " + hash2);
+            for (key = 0; key < paragraph.Length; key++)
+            {
+                string value = myMapNode.Get(key);
+                Console.WriteLine(key + " - " + value);
+            }                        
         }
     }
 }
