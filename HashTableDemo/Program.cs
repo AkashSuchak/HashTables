@@ -26,6 +26,11 @@ namespace HashTableDemo
                 key++;
             }
 
+            //Remove Value 
+            myMapNode.Remove(5);
+            myMapNode.Remove(10);
+            myMapNode.Remove(12);
+
             //Display
             Console.WriteLine("frequency of words ");
             Console.WriteLine("-------------------");

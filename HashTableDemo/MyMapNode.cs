@@ -36,6 +36,7 @@ namespace HashTableDemo
             }
             return default(V);
         }
+        //Add Element
         public void Add(K key, V value)
         {
             int position = GetArrayPosition(key);
@@ -52,6 +53,27 @@ namespace HashTableDemo
                 items[position] = linkedList;
             }
             return linkedList;
+        }
+        //Remove Value
+        public void Remove(K key)
+        {
+            int position = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            bool itemFound = false;
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.Key.Equals(key))
+                {
+                    itemFound = true;
+                    foundItem = item;
+                }
+            }
+            if (itemFound)
+            {
+                linkedList.Remove(foundItem);
+            }
         }
 
         public struct KeyValue<K, V>
